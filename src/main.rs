@@ -9,7 +9,7 @@ async fn scoped_futures() {
     let not_copy = String::from("hello");
     let not_copy_ref = &not_copy;
 
-    let ((), vals) = Scope::scope_and_block(|s: &mut async_scoped::Scope<'_, (), async_scoped::spawner::use_async_std::AsyncStd>| {
+    let ((), vals) = Scope::scope_and_block(|s| {
         for _ in 0..10 {
             let proc = || async {
                 println!("Running a task! {:?}", not_copy_ref);
