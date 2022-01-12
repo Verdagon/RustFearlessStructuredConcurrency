@@ -4,5 +4,7 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
-async-scoped = { version = "0.7.0", features = ["use-async-std"] }
-async-std = { version = "1.6.3", features = ["attributes"]  }
+async-std = { version = "1.6.3", features = ["attributes"] }
+
+# See https://github.com/rmanoka/async-scoped/issues/10 for why we need a forked async-scoped
+async-scoped = { version = "0.7.0", features = ["use-async-std"], git = "https://github.com/Verdagon/async-scoped" }
