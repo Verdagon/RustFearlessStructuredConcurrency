@@ -1,0 +1,8 @@
+[package]
+name = "rustfearlessstructured"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+async-scoped = { version = "0.7.0", path = "../async-scoped", features = ["use-async-std"] }
+async-std = { version = "1.6.3", features = ["attributes"]  }
