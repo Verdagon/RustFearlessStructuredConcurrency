@@ -12,7 +12,7 @@ impl Spaceship for Firefly { }
 
 struct World {
     some_int: i64,
-    // ship: Box<dyn Spaceship>
+    ship: Box<dyn Spaceship>
     // ... plus many other fields, which contain any number
     // of trait objects that may or may not have + Sync
 }
@@ -20,7 +20,7 @@ impl World {
     fn new() -> World {
         World {
             some_int: 0,
-            // ship: Box::new(Firefly { })
+            ship: Box::new(Firefly { })
         }
     }
 }
