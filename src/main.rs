@@ -41,8 +41,7 @@ async fn scoped_futures() {
     let not_copy = World::new();
     let not_copy_ref = &not_copy;
 
-    // See https://github.com/rmanoka/async-scoped/issues/10 for why we need the explicit type on the closure param
-    let ((), vals) = Scope::scope_and_block(|s: &mut async_scoped::Scope<'_, (), async_scoped::spawner::use_async_std::AsyncStd>| {
+    let ((), vals) = async_scoped::AsyncScope::scope_and_block(|s| {
         for _ in 0..10 {
             let proc = || async {
                 println!("Running a task! {:?}", not_copy_ref.some_int);
